@@ -214,7 +214,7 @@ export default function ListeTarama() {
     <section id="tarama" className="py-28 section-gradient">
       <div className="content-column">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium mb-5">
             <Database size={14} />
             Bakanlık Listelerinde Tarama
           </div>
@@ -234,7 +234,7 @@ export default function ListeTarama() {
             onClick={() => modDegistir('yazi')}
             className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
               mod === 'yazi'
-                ? 'bg-emerald-600 text-white border border-emerald-500/50 shadow-lg shadow-emerald-900/30'
+                ? 'bg-[#A2B997] text-white border border-[#A2B997]/50 shadow-lg shadow-[#2C3E43]/10'
                 : 'glass-btn'
             }`}
           >
@@ -246,7 +246,7 @@ export default function ListeTarama() {
             onClick={() => modDegistir('kamera')}
             className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
               mod === 'kamera'
-                ? 'bg-orange-500 text-white border border-orange-400/50 shadow-lg shadow-orange-900/30'
+                ? 'bg-[#FF8A65] text-white border border-[#FF8A65]/50 shadow-lg shadow-[#FF8A65]/20'
                 : 'glass-btn'
             }`}
           >
@@ -268,7 +268,7 @@ export default function ListeTarama() {
                 onFocus={veriyiIste}
                 placeholder="Örn. bal, zeytinyağı, tereyağı..."
                 aria-label="Ürün, marka veya firma adı"
-                className="w-full glass-input rounded-2xl pl-14 pr-12 py-4 text-base focus:outline-none focus:border-emerald-500/50 transition-colors"
+                className="w-full glass-input rounded-2xl pl-14 pr-12 py-4 text-base focus:outline-none focus:border-[#A2B997]/50 transition-colors"
               />
               {sorgu && (
                 <button
@@ -333,10 +333,10 @@ export default function ListeTarama() {
               <button
                 type="button"
                 onClick={() => dosyaRef.current?.click()}
-                className="border-2 border-dashed border-white/10 hover:border-orange-500/40 hover:bg-orange-500/5 backdrop-blur-sm rounded-xl p-10 text-center transition-all duration-200 group"
+                className="border-2 border-dashed border-white/10 hover:border-[#FF8A65]/40 hover:bg-[#FF8A65]/5 backdrop-blur-sm rounded-xl p-10 text-center transition-all duration-200 group"
               >
-                <div className="w-14 h-14 rounded-2xl glass-chip bg-orange-500/10 border-orange-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform">
-                  <ImageIcon size={24} className="text-orange-400" />
+                <div className="w-14 h-14 rounded-2xl glass-chip chip-cta flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform">
+                  <ImageIcon size={24} className="text-cta" />
                 </div>
                 <p className="text-heading font-semibold text-sm">Fotoğraf çek veya yükle</p>
                 <p className="text-subtle text-xs mt-1">Ürün etiketini net gösterin — JPG, PNG, HEIC</p>
@@ -379,8 +379,8 @@ export default function ListeTarama() {
 
           {mod === 'yazi' && !hata && aramaYapildi && yaziSonuclar.length === 0 && (
             <div className="rounded-2xl glass-success p-6 text-center">
-              <CircleCheck size={32} className="text-emerald-400 mx-auto mb-3" />
-              <p className="text-emerald-300 font-bold text-lg">Listelerde bulunamadı</p>
+              <CircleCheck size={32} className="text-brand mx-auto mb-3" />
+              <p className="text-brand font-bold text-lg">Listelerde bulunamadı</p>
               <p className="text-muted text-sm mt-2 max-w-md mx-auto">
                 &ldquo;{geciken}&rdquo; için Bakanlığın taklit-tağşiş ve sağlığı tehlikeye düşüren
                 gıdalar duyurularında kayıt yok.
@@ -418,7 +418,7 @@ export default function ListeTarama() {
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs text-faint">Tespit edilen markalar:</span>
                       {tespitMarkalar.map(m => (
-                        <span key={m} className="px-2.5 py-0.5 rounded-full text-xs font-medium glass-chip bg-orange-500/10 text-orange-300 border-orange-500/20">
+                        <span key={m} className="px-2.5 py-0.5 rounded-full text-xs font-medium glass-chip chip-cta">
                           {m}
                         </span>
                       ))}
@@ -429,8 +429,8 @@ export default function ListeTarama() {
 
               {temizSonuc && (
                 <div className="rounded-2xl glass-success p-6 text-center">
-                  <CircleCheck size={32} className="text-emerald-400 mx-auto mb-3" />
-                  <p className="text-emerald-300 font-bold text-lg">Ürün güvenli görünüyor</p>
+                  <CircleCheck size={32} className="text-brand mx-auto mb-3" />
+                  <p className="text-brand font-bold text-lg">Ürün güvenli görünüyor</p>
                   <p className="text-muted text-sm mt-2 max-w-md mx-auto">
                     Tespit edilen marka Bakanlığın taklit-tağşiş listelerinde bulunamadı.
                   </p>
@@ -458,8 +458,8 @@ export default function ListeTarama() {
 
               {!temizSonuc && ocrSonuclar.length === 0 && ocrMetin && (
                 <div className="rounded-2xl glass-success p-6 text-center">
-                  <CircleCheck size={32} className="text-emerald-400 mx-auto mb-3" />
-                  <p className="text-emerald-300 font-bold text-lg">Listelerde eşleşme bulunamadı</p>
+                  <CircleCheck size={32} className="text-brand mx-auto mb-3" />
+                  <p className="text-brand font-bold text-lg">Listelerde eşleşme bulunamadı</p>
                   <p className="text-muted text-sm mt-2">Okunan etiket için bakanlık duyurularında kayıt yok.</p>
                 </div>
               )}
@@ -474,7 +474,7 @@ export default function ListeTarama() {
           {veri?.kaynakUrl && (
             <>
               {' · '}
-              <a href={veri.kaynakUrl} target="_blank" rel="noreferrer" className="text-subtle hover:text-emerald-400 inline-flex items-center gap-1 transition-colors">
+              <a href={veri.kaynakUrl} target="_blank" rel="noreferrer" className="text-subtle hover:text-brand inline-flex items-center gap-1 transition-colors">
                 resmi liste <ExternalLink size={10} />
               </a>
             </>

@@ -21,7 +21,7 @@ function Logo({ className = 'h-9 w-auto' }: { className?: string }) {
 function PhoneMockup({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
   return (
     <div className={`relative mx-auto w-[260px] sm:w-[280px] ${className}`}>
-      <div className="absolute -inset-3 bg-gradient-to-br from-orange-500/20 to-emerald-500/10 rounded-[3rem] blur-xl" />
+      <div className="absolute -inset-3 bg-gradient-to-br from-[#FF8A65]/20 to-[#A2B997]/15 rounded-[3rem] blur-xl" />
       <div className="relative rounded-[2.5rem] glass-phone p-1.5 shadow-2xl">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 phone-notch rounded-b-xl z-10" />
         <div className="rounded-[2rem] overflow-hidden bg-black">
@@ -118,7 +118,7 @@ function AppScreenshotShowcase() {
             onClick={() => setActive(i)}
             className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
               active === i
-                ? 'bg-orange-500/20 text-orange-300 border border-orange-500/40 backdrop-blur-sm'
+                ? 'chip-cta backdrop-blur-sm'
                 : 'glass-chip text-subtle hover:text-heading'
             }`}
           >
@@ -142,7 +142,7 @@ function Hero() {
     <section className="mesh-bg min-h-screen flex items-center pt-24 pb-16">
       <div className="content-column grid lg:grid-cols-2 gap-16 items-center">
         <div className="flex flex-col gap-8">
-          <div className="inline-flex items-center gap-2 w-fit px-4 py-1.5 rounded-full glass-chip border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 w-fit px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium">
             <ShieldCheck size={14} className="pulse-glow" />
             Tarım ve Orman Bakanlığı Verileriyle
           </div>
@@ -178,7 +178,7 @@ function Hero() {
                 className={`gradient-border card-hover glass-card rounded-2xl px-5 py-4 flex flex-col justify-center ${s.span}`}
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-emerald-400">{s.icon}</span>
+                  <span className="text-brand">{s.icon}</span>
                   <p className={`font-black gradient-text ${s.span === 'col-span-2' ? 'text-4xl' : 'text-2xl'}`}>
                     {s.value}
                   </p>
@@ -190,7 +190,7 @@ function Hero() {
         </div>
 
         <div className="relative float-anim">
-          <div className="absolute -inset-4 bg-gradient-to-br from-orange-600/15 to-emerald-600/10 rounded-3xl blur-2xl" />
+          <div className="absolute -inset-4 bg-gradient-to-br from-[#FF8A65]/15 to-[#A2B997]/12 rounded-3xl blur-2xl" />
           <div className="relative">
             <AppScreenshotShowcase />
             <p className="text-center text-xs text-subtle mt-3 font-medium">Gerçek uygulama ekranları — güvenli, riskli ve geçmiş taramalar</p>
@@ -234,7 +234,7 @@ function HowItWorks() {
     <section id="how-it-works" className="py-28 section-gradient">
       <div className="content-column">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium mb-5">
             <Search size={14} />
             Nasıl Çalışır?
           </div>
@@ -250,7 +250,7 @@ function HowItWorks() {
           {steps.map(s => (
             <div key={s.step} className="gradient-border card-hover glass-card rounded-2xl p-6 flex flex-col gap-4">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl glass-chip bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <div className="w-10 h-10 rounded-xl glass-chip icon-brand flex items-center justify-center">
                   {s.icon}
                 </div>
                 <span className="text-3xl font-black text-heading/10">{s.step}</span>
@@ -324,7 +324,7 @@ function Features() {
     <section id="features" className="py-28 bg-page">
       <div className="content-column">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium mb-5">
             <LayoutGrid size={14} />
             Özellikler
           </div>
@@ -350,7 +350,7 @@ function Features() {
               )}
               {f.stat && (
                 <div className="h-48 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 to-cyan-900/20" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A2B997]/30 to-[#E0F2F1]/20" />
                   <div className="relative text-center">
                     <p className="text-6xl font-black gradient-text">{f.stat.value}</p>
                     <p className="text-muted text-sm mt-2 font-medium">{f.stat.label}</p>
@@ -358,7 +358,7 @@ function Features() {
                 </div>
               )}
               <div className="p-6 flex flex-col gap-3">
-                <div className="w-9 h-9 rounded-xl glass-chip bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <div className="w-9 h-9 rounded-xl glass-chip icon-brand flex items-center justify-center">
                   {f.icon}
                 </div>
                 <h3 className="font-bold text-heading text-lg">{f.title}</h3>
@@ -389,7 +389,7 @@ function Gallery() {
     <section id="gallery" className="py-28 bg-page">
       <div className="content-column">
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium mb-5">
             <Eye size={14} />
             Tarama Örnekleri
           </div>
@@ -405,9 +405,9 @@ function Gallery() {
           {images.map((img, i) => (
             <div key={i} className="image-gallery-item group relative break-inside-avoid glass-card p-1">
               <img src={img.url} alt={img.alt} className="w-full object-cover rounded-2xl" loading="lazy" />
-              <div className={`absolute top-3 right-3 w-3 h-3 rounded-full ${img.safe ? 'bg-emerald-400' : 'bg-red-500'} shadow-lg`} />
+              <div className={`absolute top-3 right-3 w-3 h-3 rounded-full ${img.safe ? 'bg-[#A2B997]' : 'bg-red-500'} shadow-lg`} />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className={`text-sm font-semibold ${img.safe ? 'text-emerald-300' : 'text-red-300'}`}>{img.label}</span>
+                <span className={`text-sm font-semibold ${img.safe ? 'text-brand' : 'text-red-300'}`}>{img.label}</span>
               </div>
             </div>
           ))}
@@ -462,7 +462,7 @@ function Testimonials() {
               </div>
               <p className="text-body text-sm leading-relaxed">"{t.text}"</p>
               <div className="flex items-center gap-3 mt-auto pt-5 border-t border-subtle">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#A2B997] to-[#E0F2F1] flex items-center justify-center text-[#2C3E43] text-xs font-bold">
                   {t.avatar}
                 </div>
                 <div>
@@ -533,7 +533,7 @@ function Pricing() {
     <section id="pricing" className="py-28 bg-section-alt">
       <div className="content-column">
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium mb-5">
             <ShieldCheck size={14} />
             Fiyatlandırma
           </div>
@@ -551,12 +551,12 @@ function Pricing() {
               key={plan.name}
               className={`relative rounded-2xl border p-8 flex flex-col gap-6 transition-all duration-300 ${
                 plan.popular
-                  ? 'pricing-card-popular border-emerald-500/40 glow-purple'
+                  ? 'pricing-card-popular border-[#A2B997]/40 glow-brand'
                   : 'glass-card card-hover'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-full text-xs font-bold text-white shadow-lg">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#A2B997] to-[#FF8A65] rounded-full text-xs font-bold text-white shadow-lg">
                   EN POPÜLER
                 </div>
               )}
@@ -578,7 +578,7 @@ function Pricing() {
               <ul className="flex flex-col gap-3">
                 {plan.features.map(f => (
                   <li key={f} className="flex items-start gap-3">
-                    <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 backdrop-blur-sm ${plan.popular ? 'bg-emerald-500/30 text-emerald-300 border border-emerald-500/20' : 'glass-icon text-muted'}`}>
+                    <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 backdrop-blur-sm ${plan.popular ? 'bg-[#A2B997]/30 text-brand border border-[#A2B997]/25' : 'glass-icon text-muted'}`}>
                       <Check size={10} strokeWidth={3} />
                     </div>
                     <span className="text-body text-sm">{f}</span>
@@ -665,8 +665,8 @@ function CTABanner() {
   return (
     <section className="py-24">
       <div className="content-column relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/50 to-cyan-900/30 rounded-3xl blur-xl" />
-        <div className="relative gradient-border glass-cta border border-emerald-500/20 rounded-3xl px-10 py-16 text-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#A2B997]/25 to-[#E0F2F1]/15 rounded-3xl blur-xl" />
+        <div className="relative gradient-border glass-cta border border-[#A2B997]/25 rounded-3xl px-10 py-16 text-center">
           <h2 className="text-4xl lg:text-5xl font-extrabold text-heading tracking-tight mb-5">
             Marketten almadan önce<br className="hidden md:block" />
             <span className="gradient-text"> kontrol et.</span>
@@ -713,7 +713,7 @@ function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-5 w-fit">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#A2B997] to-[#FF8A65] flex items-center justify-center">
                 <Radar size={16} className="text-white" />
               </div>
               <span className="font-bold text-lg tracking-tight text-heading">Gıda<span className="gradient-text"> Ajanı</span></span>
@@ -751,7 +751,7 @@ function Footer() {
         <div className="border-t border-subtle pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-faint text-sm">© 2025 Gıda Ajanı. Tüm hakları saklıdır.</p>
           <p className="text-faint text-sm flex items-center gap-1.5">
-            Tarım ve Orman Bakanlığı verileriyle <span className="text-emerald-400">güvenli gıda</span>
+            Tarım ve Orman Bakanlığı verileriyle <span className="text-brand">güvenli gıda</span>
           </p>
         </div>
       </div>
