@@ -372,3 +372,18 @@ body {
 .pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
 }
+
+/* Landing: içerik ekranın orta 3/5'inde (solda/sağda 1/5 boşluk) */
+.content-column {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .content-column {
+    width: 60%;
+    max-width: 60%;
+    padding-inline: 0;
+  }
+}

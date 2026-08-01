@@ -211,8 +211,8 @@ export default function ListeTarama() {
           : ''
 
   return (
-    <section id="tarama" className="py-28 px-6 section-gradient">
-      <div className="max-w-4xl mx-auto">
+    <section id="tarama" className="py-28 section-gradient">
+      <div className="content-column">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium mb-5">
             <Database size={14} />

@@ -45,7 +45,7 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 glass transition-all duration-300">
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="content-column h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 group">
           <Logo className="h-9 w-auto" />
           <span className="font-bold text-lg tracking-tight text-heading hidden sm:inline">Gıda<span className="gradient-text"> Ajanı</span></span>
@@ -75,7 +75,7 @@ function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden glass border-t border-subtle px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden glass border-t border-subtle content-column py-4 flex flex-col gap-4">
           <div className="flex justify-end">
             <ThemeToggle />
           </div>
@@ -139,8 +139,8 @@ function Hero() {
   ]
 
   return (
-    <section className="mesh-bg min-h-screen flex items-center pt-24 pb-16 px-6">
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+    <section className="mesh-bg min-h-screen flex items-center pt-24 pb-16">
+      <div className="content-column grid lg:grid-cols-2 gap-16 items-center">
         <div className="flex flex-col gap-8">
           <div className="inline-flex items-center gap-2 w-fit px-4 py-1.5 rounded-full glass-chip border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium">
             <ShieldCheck size={14} className="pulse-glow" />
@@ -231,8 +231,8 @@ function HowItWorks() {
   ]
 
   return (
-    <section id="how-it-works" className="py-28 px-6 section-gradient">
-      <div className="max-w-7xl mx-auto">
+    <section id="how-it-works" className="py-28 section-gradient">
+      <div className="content-column">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-medium mb-5">
             <Search size={14} />
@@ -321,8 +321,8 @@ function Features() {
   ]
 
   return (
-    <section id="features" className="py-28 px-6 bg-page">
-      <div className="max-w-7xl mx-auto">
+    <section id="features" className="py-28 bg-page">
+      <div className="content-column">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-medium mb-5">
             <LayoutGrid size={14} />
@@ -386,8 +386,8 @@ function Gallery() {
   ]
 
   return (
-    <section id="gallery" className="py-28 px-6 bg-page">
-      <div className="max-w-7xl mx-auto">
+    <section id="gallery" className="py-28 bg-page">
+      <div className="content-column">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-medium mb-5">
             <Eye size={14} />
@@ -444,8 +444,8 @@ function Testimonials() {
   ]
 
   return (
-    <section className="py-24 px-6 section-gradient-down">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 section-gradient-down">
+      <div className="content-column">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-extrabold text-heading tracking-tight">
             Binlerce kullanıcı<br />
@@ -530,8 +530,8 @@ function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-28 px-6 bg-section-alt">
-      <div className="max-w-7xl mx-auto">
+    <section id="pricing" className="py-28 bg-section-alt">
+      <div className="content-column">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium mb-5">
             <ShieldCheck size={14} />
@@ -629,8 +629,8 @@ function FAQ() {
   ]
 
   return (
-    <section id="faq" className="py-28 px-6 bg-page">
-      <div className="max-w-3xl mx-auto">
+    <section id="faq" className="py-28 bg-page">
+      <div className="content-column">
         <div className="text-center mb-14">
           <h2 className="text-4xl lg:text-5xl font-extrabold text-heading tracking-tight">
             Sıkça sorulan <span className="gradient-text">sorular.</span>
@@ -663,8 +663,8 @@ function FAQ() {
 // ─── CTA BANNER ───────────────────────────────────────────────────────────────
 function CTABanner() {
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-5xl mx-auto relative">
+    <section className="py-24">
+      <div className="content-column relative">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/50 to-cyan-900/30 rounded-3xl blur-xl" />
         <div className="relative gradient-border glass-cta border border-emerald-500/20 rounded-3xl px-10 py-16 text-center">
           <h2 className="text-4xl lg:text-5xl font-extrabold text-heading tracking-tight mb-5">
@@ -708,8 +708,8 @@ function Footer() {
   ]
 
   return (
-    <footer className="border-t border-subtle glass px-6 pt-16 pb-10">
-      <div className="max-w-7xl mx-auto">
+    <footer className="border-t border-subtle glass pt-16 pb-10">
+      <div className="content-column">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-5 w-fit">

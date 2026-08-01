@@ -65,14 +65,16 @@ async function prepareImageBase64(file: File): Promise<string> {
   }
 }
 
+const GOOGLE_VISION_API_KEY = 'AIzaSyDxjuBhLuR_Hm4KsnXsMOTrhh6Tg9Yci74'
+
 function getVisionApiKey(): string {
-  return import.meta.env.VITE_GOOGLE_VISION_API_KEY?.trim() ?? ''
+  return GOOGLE_VISION_API_KEY
 }
 
 export async function extractTextFromImage(file: File): Promise<string> {
   const apiKey = getVisionApiKey()
   if (!apiKey) {
-    throw new Error('Vision API anahtarı tanımlı değil. .env dosyasına VITE_GOOGLE_VISION_API_KEY ekleyin.')
+    throw new Error('Vision API anahtarı yapılandırılmamış.')
   }
 
   const base64 = await prepareImageBase64(file)
