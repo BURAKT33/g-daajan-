@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import {
   Radar, Scan, ShieldCheck, ChevronDown, Check,
-  ArrowRight, Star, Camera, AlertTriangle, Menu, X, Play, LayoutGrid,
-  MessageCircle, Users, Database, QrCode, Search, FileWarning, CircleCheck, Eye
+  ArrowRight, Star, AlertTriangle, Menu, X, Play, LayoutGrid,
+  Database, QrCode, Search, FileWarning, CircleCheck, Users
 } from 'lucide-react'
 import ListeTarama from './ListeTarama'
 import { ThemeToggle } from './lib/theme'
 
 const LOGO = '/logo.svg'
+const LINKEDIN_URL = 'https://www.linkedin.com/company/gida-ajani'
 const SCREENSHOTS = {
   safe: '/screenshots/scan-safe.jpeg',
   risk: '/screenshots/scan-risk.jpeg',
@@ -63,7 +64,6 @@ function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a href="#tarama" className="text-sm text-muted hover:text-heading transition-colors font-medium">Giriş Yap</a>
           <a href="#tarama" className="btn-primary px-5 py-2 rounded-full text-sm font-semibold text-white">
             <span>Ürün Tara</span>
           </a>
@@ -134,7 +134,7 @@ function AppScreenshotShowcase() {
 function Hero() {
   const stats = [
     { value: '1.2M+', label: 'Taranan Ürün', icon: <Scan size={16} />, span: 'col-span-2' },
-    { value: '%97', label: 'Doğruluk Oranı', icon: <ShieldCheck size={16} />, span: 'col-span-1' },
+    { value: '%100', label: 'Doğruluk Oranı', icon: <ShieldCheck size={16} />, span: 'col-span-1' },
     { value: '<3sn', label: 'Analiz Süresi', icon: <Radar size={16} />, span: 'col-span-1' },
   ]
 
@@ -144,7 +144,7 @@ function Hero() {
         <div className="flex flex-col gap-8">
           <div className="inline-flex items-center gap-2 w-fit px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium">
             <ShieldCheck size={14} className="pulse-glow" />
-            Tarım ve Orman Bakanlığı Verileriyle
+            T.C. Tarım ve Orman Bakanlığı Verileriyle
           </div>
 
           <h1 className="text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight text-heading">
@@ -154,8 +154,8 @@ function Hero() {
           </h1>
 
           <p className="text-lg text-muted leading-relaxed max-w-md">
-            Gıda Ajanı, ürün etiketini fotoğraflayarak Tarım ve Orman Bakanlığı&apos;nın
-            taklit-tağşiş listeleri ve kayıt verileriyle karşılaştırır. Marketten almadan önce kontrol edin.
+            Sepete atmadan önce gerçeği öğrenin! Ürün fotoğrafını çekin, Gıda Ajanı resmi
+            tağşiş verileriyle anında analiz etsin.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -206,27 +206,21 @@ function HowItWorks() {
   const steps = [
     {
       step: '01',
-      icon: <Camera size={22} />,
-      title: 'Fotoğraf Çek',
-      desc: 'Market rafındaki veya elinizdeki ürünün etiketini net bir şekilde fotoğraflayın. Barkod ve marka adı görünür olsun.',
+      icon: <Search size={22} />,
+      title: 'Ürünü Fotoğraflayın',
+      desc: 'Market rafında elinize aldığınız ürünü net bir şekilde fotoğraflayın. Marka ve adının görünmesi yeterli!',
     },
     {
       step: '02',
       icon: <Scan size={22} />,
-      title: 'Yapay Zeka Analiz Eder',
-      desc: 'Sistem etiketten marka, ürün adı ve barkod bilgisini okur; Bakanlık veri tabanıyla eşleştirir.',
+      title: 'Sizin Yerinize Araştıralım',
+      desc: 'Siz ince yazılarla uğraşmayın; akıllı sistemimiz ürünü anında okur ve Bakanlığın güncel taklit-tağşiş kayıtlarıyla eşleştirir.',
     },
     {
       step: '03',
-      icon: <Database size={22} />,
-      title: 'Bakanlık Verisiyle Karşılaştır',
-      desc: 'Taklit-tağşiş listesi, gıda kayıt/onay verileri ve kamuoyu duyuruları anlık sorgulanır.',
-    },
-    {
-      step: '04',
       icon: <ShieldCheck size={22} />,
-      title: 'Sonucu Gör',
-      desc: 'Ürün güvenli mi, listede mi, kayıtlı mı — saniyeler içinde net bir rapor alırsınız.',
+      title: 'Güvenle Kararınızı Verin',
+      desc: 'Ürün temiz mi, yoksa kara listede mi? Sepete atmadan önce net ve anlaşılır raporunuzu saniyeler içinde ekranda görün.',
     },
   ]
 
@@ -239,14 +233,14 @@ function HowItWorks() {
             Nasıl Çalışır?
           </div>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-heading tracking-tight">
-            4 adımda <span className="gradient-text">ürün doğrulama.</span>
+            3 adımda <span className="gradient-text">ürün doğrulama.</span>
           </h2>
           <p className="text-muted mt-4 text-lg max-w-xl mx-auto">
             Karmaşık formlar yok. Ürünün fotoğrafını çekin, Gıda Ajanı gerisini halletsin.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {steps.map(s => (
             <div key={s.step} className="gradient-border card-hover glass-card rounded-2xl p-6 flex flex-col gap-4">
               <div className="flex items-center justify-between">
@@ -269,11 +263,11 @@ function HowItWorks() {
 function Features() {
   const features = [
     {
-      icon: <Camera size={22} />,
-      title: 'Etiket Tanıma',
-      desc: 'Yapay zeka ile ürün etiketindeki marka, ürün adı, barkod ve son kullanma tarihini otomatik okur.',
+      icon: <Search size={22} />,
+      title: 'Ürün Tanıma',
+      desc: 'Yapay zeka ile ürün fotoğrafındaki marka, ürün adı ve son kullanma tarihini otomatik okur.',
       image: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=340&fit=crop&auto=format',
-      alt: 'Gıda ürünü etiketi yakın çekim',
+      alt: 'Gıda ürünü yakın çekim',
       span: 'lg:col-span-2',
     },
     {
@@ -286,10 +280,10 @@ function Features() {
     },
     {
       icon: <QrCode size={22} />,
-      title: 'Barkod & Karekod Sorgu',
-      desc: 'Barkod ve işletme karekodlarını okuyarak kayıt/onay numarası ve denetim bilgilerine ulaşın.',
+      title: 'Karekod Sorgu',
+      desc: 'İşletme karekodlarını okuyarak kayıt/onay numarası ve denetim bilgilerine ulaşın.',
       image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&h=340&fit=crop&auto=format',
-      alt: 'Süt ürünü barkod etiketi',
+      alt: 'Süt ürünü ambalajı',
       span: 'lg:col-span-1',
     },
     {
@@ -333,7 +327,7 @@ function Features() {
             <span className="gradient-text"> dijital kalkanınız.</span>
           </h2>
           <p className="text-muted mt-4 text-lg max-w-xl mx-auto">
-            Devletin resmi verileriyle çalışan, vatandaş odaklı gıda doğrulama platformu.
+            Bakanlığın resmi verileriyle çalışan, vatandaş odaklı gıda doğrulama platformu.
           </p>
         </div>
 
@@ -372,51 +366,6 @@ function Features() {
   )
 }
 
-// ─── GALLERY ──────────────────────────────────────────────────────────────────
-function Gallery() {
-  const images = [
-    { url: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&h=600&fit=crop&auto=format', label: '✓ Güvenli — Süt Ürünü', alt: 'Onaylı süt ürünü', safe: true },
-    { url: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&h=380&fit=crop&auto=format', label: '✓ Güvenli — Sebze & Meyve', alt: 'Taze sebze meyve', safe: true },
-    { url: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=500&h=480&fit=crop&auto=format', label: '✗ Riskli — Sahte Bal', alt: 'Taklit bal ürünü', safe: false },
-    { url: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=500&h=540&fit=crop&auto=format', label: '✓ Güvenli — Et Ürünü', alt: 'Onaylı et ürünü', safe: true },
-    { url: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=500&h=400&fit=crop&auto=format', label: '✓ Güvenli — Peynir', alt: 'Kayıtlı peynir ürünü', safe: true },
-    { url: 'https://images.unsplash.com/photo-1574484284002-952d78056913?w=500&h=460&fit=crop&auto=format', label: '✗ Riskli — Tağşiş Zeytinyağı', alt: 'Tağşiş zeytinyağı', safe: false },
-    { url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=420&fit=crop&auto=format', label: '✓ Güvenli — Unlu Mamul', alt: 'Onaylı ekmek ürünü', safe: true },
-    { url: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500&h=360&fit=crop&auto=format', label: '✓ Güvenli — İçecek', alt: 'Kayıtlı içecek', safe: true },
-  ]
-
-  return (
-    <section id="gallery" className="py-28 bg-page">
-      <div className="content-column">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip chip-brand text-sm font-medium mb-5">
-            <Eye size={14} />
-            Tarama Örnekleri
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-heading tracking-tight">
-            Gerçek tarama <span className="gradient-text">sonuçları.</span>
-          </h2>
-          <p className="text-muted mt-4 text-lg max-w-lg mx-auto">
-            Gıda Ajanı ile taranan ürünlerden örnekler — yeşil güvenli, kırmızı riskli.
-          </p>
-        </div>
-
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-          {images.map((img, i) => (
-            <div key={i} className="image-gallery-item group relative break-inside-avoid glass-card p-1">
-              <img src={img.url} alt={img.alt} className="w-full object-cover rounded-2xl" loading="lazy" />
-              <div className={`absolute top-3 right-3 w-3 h-3 rounded-full ${img.safe ? 'bg-[#A2B997]' : 'bg-red-500'} shadow-lg`} />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className={`text-sm font-semibold ${img.safe ? 'text-brand' : 'text-red-300'}`}>{img.label}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 // ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
 function Testimonials() {
   const testimonials = [
@@ -438,7 +387,7 @@ function Testimonials() {
       name: 'Zeynep Arslan',
       role: 'Gıda Mühendisi',
       avatar: 'ZA',
-      text: "Bakanlık verileriyle entegre çalışması en büyük artısı. Etiket okuma doğruluğu yüksek, riskli ürünlerde anında uyarı veriyor.",
+      text: "Bakanlık verileriyle entegre çalışması en büyük artısı. Ürün tanıma doğruluğu yüksek, riskli ürünlerde anında uyarı veriyor.",
       stars: 5,
     },
   ]
@@ -491,7 +440,7 @@ function Pricing() {
         'Ayda 20 ürün taraması',
         'Taklit-tağşiş listesi sorgusu',
         'Güven skoru raporu',
-        'Temel etiket okuma',
+        'Temel ürün okuma',
         'Mobil uygulama erişimi',
       ],
     },
@@ -506,7 +455,7 @@ function Pricing() {
         'Tüm Bakanlık listeleri',
         'Geçmiş tarama arşivi',
         'Risk bildirimi (push)',
-        'Barkod & karekod okuma',
+        'Karekod okuma',
         'Aile profili (5 kişi)',
         'Öncelikli destek',
       ],
@@ -608,15 +557,15 @@ function FAQ() {
   const faqs = [
     {
       q: 'Gıda Ajanı nasıl çalışır?',
-      a: "Ürünün etiket fotoğrafını çekersiniz. Yapay zeka marka, ürün adı ve barkod bilgisini okur; ardından Tarım ve Orman Bakanlığı'nın taklit-tağşiş listeleri ve kayıt verileriyle karşılaştırır. Sonuç saniyeler içinde ekranınıza gelir.",
+      a: "Ürün fotoğrafını çekersiniz. Yapay zeka marka ve ürün adını okur; ardından T.C. Tarım ve Orman Bakanlığı'nın taklit-tağşiş listeleri ve kayıt verileriyle karşılaştırır. Sonuç saniyeler içinde ekranınıza gelir.",
     },
     {
       q: 'Veriler nereden geliyor?',
-      a: "Tüm veriler Tarım ve Orman Bakanlığı'nın resmi Güvenilir Gıda platformundan (guvenilirgida.tarimorman.gov.tr) çekilir. Taklit-tağşiş listeleri, gıda kayıt/onay verileri ve kamuoyu duyuruları düzenli olarak güncellenir.",
+      a: "Tüm veriler T.C. Tarım ve Orman Bakanlığı'nın resmi Güvenilir Gıda platformundan (guvenilirgida.tarimorman.gov.tr) çekilir. Taklit-tağşiş listeleri, gıda kayıt/onay verileri ve kamuoyu duyuruları düzenli olarak güncellenir.",
     },
     {
       q: 'Hangi ürünleri tarayabilirim?',
-      a: 'Ambalajlı tüm gıda ürünlerini tarayabilirsiniz: süt ürünleri, et, bal, zeytinyağı, konserve, içecek, unlu mamul ve daha fazlası. Etikette marka adı veya barkod görünür olmalıdır.',
+      a: 'Ambalajlı tüm gıda ürünlerini tarayabilirsiniz: süt ürünleri, et, bal, zeytinyağı, konserve, içecek, unlu mamul ve daha fazlası. Ürün fotoğrafında marka adının görünmesi yeterlidir.',
     },
     {
       q: 'Riskli ürün tespit edilirse ne olur?',
@@ -692,18 +641,36 @@ function CTABanner() {
 
 // ─── FOOTER ───────────────────────────────────────────────────────────────────
 function Footer() {
+  const KAMUOYU_URL = 'https://www.turkiye.gov.tr/tarim-ve-orman-sonlandirilmis-gida-kamuoyu-duyurusu?gida=Listesi'
+  const GUVENILIR_GIDA_URL = 'https://guvenilirgida.tarimorman.gov.tr/'
+
   const cols = [
     {
       title: 'Özellikler',
-      links: ['Etiket Tanıma', 'Taklit Kontrolü', 'Barkod Sorgu', 'Güven Skoru', 'Risk Uyarıları'],
+      links: [
+        { label: 'Ürün Tanıma', href: '#features' },
+        { label: 'Taklit Kontrolü', href: '#features' },
+        { label: 'Karekod Sorgu', href: '#features' },
+        { label: 'Güven Skoru', href: '#features' },
+        { label: 'Risk Uyarıları', href: '#features' },
+      ],
     },
     {
       title: 'Veri Kaynakları',
-      links: ['Güvenilir Gıda', 'Taklit-Tağşiş Listesi', 'Kamuoyu Duyuruları', 'İşletme Denetimleri'],
+      links: [
+        { label: 'Güvenilir Gıda', href: GUVENILIR_GIDA_URL },
+        { label: 'Taklit-Tağşiş Listesi', href: KAMUOYU_URL },
+        { label: 'Kamuoyu Duyuruları', href: KAMUOYU_URL },
+        { label: 'İşletme Denetimleri', href: GUVENILIR_GIDA_URL },
+      ],
     },
     {
       title: 'Şirket',
-      links: ['Hakkımızda', 'Blog', 'Kariyer', 'Gizlilik Politikası', 'Kullanım Şartları'],
+      links: [
+        { label: 'Hakkımızda', href: 'https://merestohum.com.tr/#about' },
+        { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi.html' },
+        { label: 'Kullanım Şartları', href: '/kullanim-sartlari.html' },
+      ],
     },
   ]
 
@@ -719,19 +686,28 @@ function Footer() {
               <span className="font-bold text-lg tracking-tight text-heading">Gıda<span className="gradient-text"> Ajanı</span></span>
             </a>
             <p className="text-subtle text-sm leading-relaxed max-w-xs">
-              Ürün fotoğrafını çek, Tarım ve Orman Bakanlığı verileriyle karşılaştır. Gıda güvenliğini cebinde taşı.
+              Ürün fotoğrafını çek, T.C. Tarım ve Orman Bakanlığı verileriyle karşılaştır. Gıda güvenliğini cebinde taşı.
             </p>
             <div className="flex items-center gap-4 mt-6">
-              {[
-                { Icon: MessageCircle, href: '#', label: 'WhatsApp' },
-                { Icon: Camera, href: '#', label: 'Instagram' },
-                { Icon: Users, href: '#', label: 'LinkedIn' },
-              ].map(({ Icon, href, label }, i) => (
-                <a key={i} href={href} className="w-9 h-9 rounded-full glass-icon flex items-center justify-center text-subtle hover:text-heading hover:border-white/30 transition-all" aria-label={label}>
-                  <Icon size={15} />
-                </a>
-              ))}
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 rounded-full glass-icon flex items-center justify-center text-subtle hover:text-heading hover:border-white/30 transition-all"
+                aria-label="LinkedIn"
+              >
+                <Users size={15} />
+              </a>
             </div>
+            <a
+              href="https://merestohum.com.tr/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 mt-6 text-subtle hover:text-heading transition-colors"
+            >
+              <img src="/merestohum-logo.svg" alt="Meres Tohum" className="h-6 w-auto" />
+              <span className="text-xs font-medium">Meres Tohum güvencesiyle…</span>
+            </a>
           </div>
 
           {cols.map(col => (
@@ -739,8 +715,15 @@ function Footer() {
               <h4 className="text-heading text-sm font-semibold mb-5">{col.title}</h4>
               <ul className="flex flex-col gap-3">
                 {col.links.map(link => (
-                  <li key={link}>
-                    <a href="#" className="text-subtle text-sm hover:text-heading transition-colors">{link}</a>
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={link.href.startsWith('http') ? '_blank' : undefined}
+                      rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+                      className="text-subtle text-sm hover:text-heading transition-colors"
+                    >
+                      {link.label}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -749,9 +732,9 @@ function Footer() {
         </div>
 
         <div className="border-t border-subtle pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-faint text-sm">© 2025 Gıda Ajanı. Tüm hakları saklıdır.</p>
+          <p className="text-faint text-sm">© 2026 Gıda Ajanı. Tüm hakları saklıdır.</p>
           <p className="text-faint text-sm flex items-center gap-1.5">
-            Tarım ve Orman Bakanlığı verileriyle <span className="text-brand">güvenli gıda</span>
+            T.C. Tarım ve Orman Bakanlığı verileriyle <span className="text-brand">güvenli gıda</span>
           </p>
         </div>
       </div>
@@ -769,7 +752,6 @@ export default function App() {
         <ListeTarama />
         <HowItWorks />
         <Features />
-        <Gallery />
         <Testimonials />
         <Pricing />
         <FAQ />

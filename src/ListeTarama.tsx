@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   Search, LoaderCircle, CircleCheck, TriangleAlert, MapPin, Calendar,
-  Building2, Tag, ExternalLink, X, Database, Camera, Type, Scan, ImageIcon,
+  Building2, Tag, X, Database, Camera, Type, Scan, ImageIcon,
 } from 'lucide-react'
 import { ara, tarihBicimle, veriSetiniYukle, type Kayit, type VeriSeti } from './lib/gidaVerisi'
 import { extractTextFromImage } from './lib/googleVision'
@@ -169,7 +169,7 @@ export default function ListeTarama() {
   const kameraAra = async () => {
     const dosya = secilenDosya.current
     if (!dosya) {
-      setHata('Önce ürün etiketinin fotoğrafını seçin veya çekin.')
+      setHata('Önce ürün fotoğrafını seçin veya çekin.')
       return
     }
 
@@ -206,7 +206,7 @@ export default function ListeTarama() {
 
   const adimMetni =
     adim === 'isleniyor' ? 'Görsel hazırlanıyor...'
-      : adim === 'okunuyor' ? 'Etiket okunuyor...'
+      : adim === 'okunuyor' ? 'Ürün analiz ediliyor...'
         : adim === 'araniyor' ? 'Bakanlık listelerinde aranıyor...'
           : ''
 
@@ -222,7 +222,7 @@ export default function ListeTarama() {
             Ürünü sorgula, <span className="gradient-text">listede mi öğren.</span>
           </h2>
           <p className="text-muted mt-4 text-lg">
-            Yazı ile arayın veya ürün etiketinin fotoğrafını çekin. Tarım ve Orman Bakanlığı&apos;nın
+            Yazı ile arayın veya ürün fotoğrafını çekin. T.C. Tarım ve Orman Bakanlığı&apos;nın
             taklit-tağşiş ve sağlığı tehlikeye düşüren gıdalar duyurularındaki {toplam.toLocaleString('tr-TR')} kayıt taranır.
           </p>
         </div>
@@ -310,7 +310,7 @@ export default function ListeTarama() {
 
             {onizleme ? (
               <div className="relative rounded-xl overflow-hidden border border-white/10 max-h-64">
-                <img src={onizleme} alt="Seçilen ürün etiketi" className="w-full h-full object-contain bg-black/40 max-h-64" />
+                <img src={onizleme} alt="Seçilen ürün fotoğrafı" className="w-full h-full object-contain bg-black/40 max-h-64" />
                 <button
                   onClick={() => {
                     secilenDosya.current = null
@@ -339,7 +339,7 @@ export default function ListeTarama() {
                   <ImageIcon size={24} className="text-cta" />
                 </div>
                 <p className="text-heading font-semibold text-sm">Fotoğraf çek veya yükle</p>
-                <p className="text-subtle text-xs mt-1">Ürün etiketini net gösterin — JPG, PNG, HEIC</p>
+                <p className="text-subtle text-xs mt-1">Ürünü net gösterin — JPG, PNG, HEIC</p>
               </button>
             )}
 
@@ -412,7 +412,7 @@ export default function ListeTarama() {
             <>
               {ocrMetin && (
                 <div className="glass-card rounded-2xl p-4 mb-5">
-                  <p className="text-[11px] uppercase tracking-widest text-subtle font-semibold mb-2">Okunan etiket metni</p>
+                  <p className="text-[11px] uppercase tracking-widest text-subtle font-semibold mb-2">Okunan metin</p>
                   <p className="text-body text-sm whitespace-pre-wrap leading-relaxed">{ocrMetin}</p>
                   {tespitMarkalar.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-3">
@@ -460,26 +460,12 @@ export default function ListeTarama() {
                 <div className="rounded-2xl glass-success p-6 text-center">
                   <CircleCheck size={32} className="text-brand mx-auto mb-3" />
                   <p className="text-brand font-bold text-lg">Listelerde eşleşme bulunamadı</p>
-                  <p className="text-muted text-sm mt-2">Okunan etiket için bakanlık duyurularında kayıt yok.</p>
+                  <p className="text-muted text-sm mt-2">Okunan ürün için bakanlık duyurularında kayıt yok.</p>
                 </div>
               )}
             </>
           )}
         </div>
-
-        <p className="text-faint text-xs text-center mt-10 leading-relaxed">
-          Kaynak: Tarım ve Orman Bakanlığı kamuoyu duyuruları
-          {veri && ` · ${veri.kayitlar.length.toLocaleString('tr-TR')} kayıt`}
-          {mod === 'kamera' && ' · Görsel okuma: Google Cloud Vision API'}
-          {veri?.kaynakUrl && (
-            <>
-              {' · '}
-              <a href={veri.kaynakUrl} target="_blank" rel="noreferrer" className="text-subtle hover:text-brand inline-flex items-center gap-1 transition-colors">
-                resmi liste <ExternalLink size={10} />
-              </a>
-            </>
-          )}
-        </p>
       </div>
     </section>
   )

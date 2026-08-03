@@ -1,9 +1,9 @@
 {
   "title": "Gıda Ajanı — Ürün Fotoğrafıyla Gıda Güvenliği Kontrolü",
-  "description": "Ürünün fotoğrafını çek, Tarım ve Orman Bakanlığı taklit-tağşiş listeleri ve kayıt verileriyle karşılaştır. Gıda güvenliğini anında kontrol et.",
+  "description": "Sepete atmadan önce gerçeği öğrenin. Ürün fotoğrafını çekin, T.C. Tarım ve Orman Bakanlığı taklit-tağşiş verileriyle anında karşılaştırın.",
   "language": "tr",
   "icons": {
-    "icon": "/logo.svg"
+    "icon": "/favicon.svg"
   },
   "robots": {
     "index": false
