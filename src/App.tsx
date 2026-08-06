@@ -703,10 +703,20 @@ function Footer() {
               href="https://merestohum.com.tr/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 mt-6 text-subtle hover:text-heading transition-colors"
+              className="group inline-flex items-center gap-3.5 mt-8 px-4 py-3 rounded-xl glass-card border border-subtle hover:border-[#A2B997]/30 transition-all duration-200 w-fit"
             >
-              <img src="/merestohum-logo.svg" alt="Meres Tohum" className="h-6 w-auto" />
-              <span className="text-xs font-medium">Meres Tohum güvencesiyle…</span>
+              <img
+                src="/meres-tohum-logo.png"
+                alt="Meres Tohum"
+                className="h-10 w-10 rounded-lg object-contain bg-white/90 p-0.5 shrink-0"
+              />
+              <div className="flex flex-col gap-0.5">
+                <span className="text-sm font-semibold text-heading group-hover:text-brand transition-colors">
+                  Meres Tohum
+                </span>
+                <span className="text-xs text-subtle">Güvencesiyle sunulmaktadır</span>
+              </div>
+              <ArrowRight size={14} className="text-faint group-hover:text-brand group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
             </a>
           </div>
 
