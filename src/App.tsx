@@ -5,7 +5,12 @@ import {
   Database, QrCode, Search, FileWarning, CircleCheck, Users
 } from 'lucide-react'
 import ListeTarama from './ListeTarama'
+import PrivacyPage from './PrivacyPage'
 import { ThemeToggle } from './lib/theme'
+
+function currentPath(): string {
+  return window.location.pathname.replace(/\/+$/, '') || '/'
+}
 
 const LOGO = '/logo.svg'
 const LINKEDIN_URL = 'https://www.linkedin.com/company/gida-ajani'
@@ -668,7 +673,7 @@ function Footer() {
       title: 'Şirket',
       links: [
         { label: 'Hakkımızda', href: 'https://merestohum.com.tr/#about' },
-        { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi.html' },
+        { label: 'Gizlilik Politikası', href: '/privacy' },
         { label: 'Kullanım Şartları', href: '/kullanim-sartlari.html' },
       ],
     },
@@ -754,6 +759,11 @@ function Footer() {
 
 // ─── APP ─────────────────────────────────────────────────────────────────────
 export default function App() {
+  const path = currentPath()
+  if (path === '/privacy' || path === '/gizlilik-politikasi' || path === '/gizlilik-politikasi.html') {
+    return <PrivacyPage />
+  }
+
   return (
     <div className="min-h-screen bg-page" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <Navbar />

@@ -2,8 +2,35 @@ import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
+import fs from 'node:fs'
 
 import siteConfiguration from './.figma/make/site.json'
+
+/** Serves SPA index for /privacy so deep links work in dev and static hosting. */
+function privacySpaFallback(): Plugin {
+  const PRIVACY_PATHS = new Set(['/privacy', '/privacy/'])
+
+  return {
+    name: 'privacy-spa-fallback',
+    configureServer(server) {
+      server.middlewares.use((req, _res, next) => {
+        const urlPath = req.url?.split('?')[0] ?? ''
+        if (PRIVACY_PATHS.has(urlPath)) {
+          req.url = '/index.html'
+        }
+        next()
+      })
+    },
+    closeBundle() {
+      const outDir = path.resolve(__dirname, 'dist')
+      const indexHtml = path.join(outDir, 'index.html')
+      if (!fs.existsSync(indexHtml)) return
+      const privacyDir = path.join(outDir, 'privacy')
+      fs.mkdirSync(privacyDir, { recursive: true })
+      fs.copyFileSync(indexHtml, path.join(privacyDir, 'index.html'))
+    },
+  }
+}
 
 // Vite config — https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -19,6 +46,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
+      privacySpaFallback(),
       figmaSiteConfiguration(siteConfiguration),
       figmaErrorOverlayReplay(),
       figmaReactRefreshBoundaryFallback(),

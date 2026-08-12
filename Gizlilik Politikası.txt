@@ -1,0 +1,55 @@
+GIDA AJANI - GİZLİLİK POLİTİKASI VE AYDINLATMA METNİ
+
+
+Son Güncelleme Tarihi: 12/08/2026
+
+
+1. VERİ SORUMLUSU
+Gıda Ajanı mobil uygulaması üzerinden toplanan kişisel verileriniz, veri sorumlusu sıfatıyla Meres Tohum (Bundan sonra "Gıda Ajanı" olarak anılacaktır) tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca aşağıda açıklanan kapsamda işlenebilecektir.
+
+
+2. İŞLENEN KİŞİSEL VERİLER VE İŞLEME AMAÇLARI
+Uygulamamızı kullandığınızda aşağıdaki verileriniz, belirtilen amaçlarla işlenmektedir:
+
+
+A. Kimlik ve İletişim Bilgileri: Ad-Soyad, E-posta adresi.
+  - Amaç: Kullanıcı hesabı oluşturma, kimlik doğrulama ve kullanıcı desteği sağlama.
+
+
+B. Kullanım ve Tercih Verileri: Tarama geçmişi, favori ürünler, riskli olarak işaretlenen ürünler.
+  - Amaç: Hizmet sunumu, alışveriş rehberliği ve kişiselleştirilmiş kullanıcı deneyimi.
+
+
+C. Görsel Veriler: Uygulama kamerası aracılığıyla çekilen ürün etiket ve içerik fotoğrafları.
+  - Amaç: Yapay zeka destekli analiz işleminin gerçekleştirilmesi ve taklit/tağşiş kontrolü. (Bu görseller analiz işlemi bittikten sonra sistemlerimizde kalıcı olarak saklanmaz.)
+
+
+D. Cihaz Bilgileri: IP adresi, cihaz modeli, işletim sistemi.
+  - Amaç: Uygulama güvenliği, hata ayıklama (debug) ve teknik optimizasyon.
+
+
+3. KİŞİSEL VERİLERİN AKTARILMASI
+Kişisel verileriniz; hizmetin teknik olarak sunulabilmesi amacıyla bulut bilişim altyapısı sağlayıcımız olan Google Firebase ve Google Cloud Platform (GCP) sunucularına aktarılmaktadır. Bu altyapı sunucuları yurt dışında bulunabilmektedir. Verileriniz, yasal zorunluluklar haricinde üçüncü taraf şahıs veya ticari şirketlerle reklam amaçlı paylaşılmaz veya satılmaz.
+
+
+4. KİŞİSEL VERİ TOPLAMANIN YÖNTEMİ VE HUKUKİ SEBEBİ
+Verileriniz, uygulamayı kullanmanız esnasında tamamen dijital kanallar aracılığıyla toplanmaktadır. Veri işleme faaliyetimiz; "bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması" ve "veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması" hukuki sebeplerine dayanmaktadır.
+
+
+5. VERİ SAHİBİNİN HAKLARI (KVKK MADDE 11)
+KVKK uyarınca herkes, veri sorumlusuna başvurarak kendisiyle ilgili;
+- Kişisel verilerinin işlenip işlenmediğini öğrenme,
+- Kişisel verileri işlenmişse buna ilişkin bilgi talep etme,
+- Kişisel verilerin düzeltilmesini, silinmesini veya yok edilmesini isteme,
+- İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme haklarına sahiptir.
+
+
+Kullanıcılar, uygulama içerisindeki "Hesabımı Sil" butonu aracılığıyla tüm verilerinin kalıcı olarak silinmesini her zaman talep edebilirler.
+
+
+6. İLETİŞİM
+Gizlilik politikamızla ilgili sorularınız ve hak talepleriniz için bizimle iletişime geçebilirsiniz:
+E-posta: destek@gidaajani.com
+Web: https://gidaajani.com
+
+
