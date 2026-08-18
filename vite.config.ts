@@ -6,16 +6,17 @@ import fs from 'node:fs'
 
 import siteConfiguration from './.figma/make/site.json'
 
-/** Serves SPA index for /privacy so deep links work in dev and static hosting. */
-function privacySpaFallback(): Plugin {
-  const PRIVACY_PATHS = new Set(['/privacy', '/privacy/'])
+/** Serves SPA index for app routes so deep links work in dev and static hosting. */
+function spaFallback(): Plugin {
+  const SPA_PATHS = new Set(['/privacy', '/privacy/', '/delete-my-account', '/delete-my-account/'])
+  const SPA_DIRS = ['privacy', 'delete-my-account']
 
   return {
-    name: 'privacy-spa-fallback',
+    name: 'spa-fallback',
     configureServer(server) {
       server.middlewares.use((req, _res, next) => {
         const urlPath = req.url?.split('?')[0] ?? ''
-        if (PRIVACY_PATHS.has(urlPath)) {
+        if (SPA_PATHS.has(urlPath)) {
           req.url = '/index.html'
         }
         next()
@@ -25,9 +26,11 @@ function privacySpaFallback(): Plugin {
       const outDir = path.resolve(__dirname, 'dist')
       const indexHtml = path.join(outDir, 'index.html')
       if (!fs.existsSync(indexHtml)) return
-      const privacyDir = path.join(outDir, 'privacy')
-      fs.mkdirSync(privacyDir, { recursive: true })
-      fs.copyFileSync(indexHtml, path.join(privacyDir, 'index.html'))
+      for (const dirName of SPA_DIRS) {
+        const dir = path.join(outDir, dirName)
+        fs.mkdirSync(dir, { recursive: true })
+        fs.copyFileSync(indexHtml, path.join(dir, 'index.html'))
+      }
     },
   }
 }
@@ -46,7 +49,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
-      privacySpaFallback(),
+      spaFallback(),
       figmaSiteConfiguration(siteConfiguration),
       figmaErrorOverlayReplay(),
       figmaReactRefreshBoundaryFallback(),

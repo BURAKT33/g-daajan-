@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import ListeTarama from './ListeTarama'
 import PrivacyPage from './PrivacyPage'
+import DeleteAccountPage from './DeleteAccountPage'
 import { ThemeToggle } from './lib/theme'
 
 function currentPath(): string {
@@ -674,6 +675,7 @@ function Footer() {
       links: [
         { label: 'Hakkımızda', href: 'https://merestohum.com.tr/#about' },
         { label: 'Gizlilik Politikası', href: '/privacy' },
+        { label: 'Hesabımı Sil', href: '/delete-my-account' },
         { label: 'Kullanım Şartları', href: '/kullanim-sartlari.html' },
       ],
     },
@@ -762,6 +764,9 @@ export default function App() {
   const path = currentPath()
   if (path === '/privacy' || path === '/gizlilik-politikasi' || path === '/gizlilik-politikasi.html') {
     return <PrivacyPage />
+  }
+  if (path === '/delete-my-account') {
+    return <DeleteAccountPage />
   }
 
   return (
