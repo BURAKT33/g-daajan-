@@ -24,6 +24,7 @@ const COPY = {
     screenshotCaptions: [
       'Adım 2 — Ana ekrandaki profil simgesi',
       'Adım 3 — Profil sayfasının altındaki Hesabımı Sil',
+      'Adım 4 — Silme onay ekranı',
     ],
     warningTitle: 'Bu işlem geri alınamaz',
     warningBody:
@@ -49,6 +50,7 @@ const COPY = {
     screenshotCaptions: [
       'Step 2 — Profile icon on the home screen',
       'Step 3 — Delete My Account at the bottom of Profile',
+      'Step 4 — Deletion confirmation dialog',
     ],
     warningTitle: 'This action cannot be undone',
     warningBody:
@@ -68,6 +70,11 @@ const SCREENSHOTS = [
     src: '/screenshots/delete-step-2-delete.png',
     altTr: 'Profilim ekranı, en alttaki Hesabımı Sil bağlantısı işaretlenmiş',
     altEn: 'My Profile screen with the Delete My Account link at the bottom highlighted',
+  },
+  {
+    src: '/screenshots/delete-step-3-confirm.png',
+    altTr: 'Hesap silme onay diyaloğu — KVKK kapsamında kalıcı silme uyarısı',
+    altEn: 'Account deletion confirmation dialog — permanent deletion warning under KVKK',
   },
 ] as const
 
@@ -166,7 +173,7 @@ export default function DeleteAccountPage() {
             </ol>
           </section>
 
-          <div className="mt-8 grid sm:grid-cols-2 gap-5">
+          <div className="mt-8 grid sm:grid-cols-3 gap-5">
             {SCREENSHOTS.map((shot, i) => (
               <figure key={shot.src} className="gradient-border glass-card rounded-2xl overflow-hidden">
                 <img
