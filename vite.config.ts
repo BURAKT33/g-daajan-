@@ -8,8 +8,17 @@ import siteConfiguration from './.figma/make/site.json'
 
 /** Serves SPA index for app routes so deep links work in dev and static hosting. */
 function spaFallback(): Plugin {
-  const SPA_PATHS = new Set(['/privacy', '/privacy/', '/delete-my-account', '/delete-my-account/'])
-  const SPA_DIRS = ['privacy', 'delete-my-account']
+  const SPA_PATHS = new Set([
+    '/privacy',
+    '/privacy/',
+    '/delete-my-account',
+    '/delete-my-account/',
+    '/kullanim-sartlari',
+    '/kullanim-sartlari/',
+    '/terms',
+    '/terms/',
+  ])
+  const SPA_DIRS = ['privacy', 'delete-my-account', 'kullanim-sartlari', 'terms']
 
   return {
     name: 'spa-fallback',

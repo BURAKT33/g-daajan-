@@ -7,6 +7,7 @@ import {
 import ListeTarama from './ListeTarama'
 import PrivacyPage from './PrivacyPage'
 import DeleteAccountPage from './DeleteAccountPage'
+import TermsPage from './TermsPage'
 import { ThemeToggle } from './lib/theme'
 
 function currentPath(): string {
@@ -676,7 +677,7 @@ function Footer() {
         { label: 'Hakkımızda', href: 'https://merestohum.com.tr/#about' },
         { label: 'Gizlilik Politikası', href: '/privacy' },
         { label: 'Hesabımı Sil', href: '/delete-my-account' },
-        { label: 'Kullanım Şartları', href: '/kullanim-sartlari.html' },
+        { label: 'Kullanım Şartları', href: '/kullanim-sartlari' },
       ],
     },
   ]
@@ -767,6 +768,9 @@ export default function App() {
   }
   if (path === '/delete-my-account') {
     return <DeleteAccountPage />
+  }
+  if (path === '/kullanim-sartlari' || path === '/terms') {
+    return <TermsPage />
   }
 
   return (
